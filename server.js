@@ -43,7 +43,11 @@ app.use(express.static("public"));
 mongoose.Promise = Promise;
 
 // connect to the MongoDB
-mongoose.connect("mongodb://localhost/newsScraper", { useNewUrlParser: true });
+
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://user:Chieu1964@ds133137.mlab.com:33137/heroku_74z0d8kv";
+
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
 mongoose.set("useCreateIndex", true);
 
 // ======== ROUTES ================
