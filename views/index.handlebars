@@ -1,0 +1,77 @@
+<div class="container articles-div">
+    {{#each articles}}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3>
+                <a href="{{this.link}}" target="_blank" class="article-link">{{this.title}}</a>
+            </h3>
+            {{#if this.saved}}
+            <button type="button" class="btn btn-default saved" data-id="{{this._id}}" disabled>Saved</button>
+            {{else}}
+            <button type="button" class="btn btn-default save-article-btn" data-id="{{this._id}}" data-toggle="modal"
+                data-target="#saveModal">Save</button>
+            {{/if}}
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<!-- Initial Scrape Modal -->
+<div class="modal fade" id="initScrapeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel"><img id="emoji" src="./assets/img/waving_hand.png" /> Welcome
+                    to Mongoose Scraper<br />Click <a href="/scrape">here</a> to scrape!</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Scrape Modal -->
+<div class="modal fade" id="scrapeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Articles successfully scraped!</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Save Modal -->
+<div class="modal fade" id="saveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+
+            <div id="article-saved-div">
+                <div class="modal-header">
+                    <h4 class="modal-title">Article saved!</h4>
+                    <button type="button" class="btn btn-primary add-note-btn">Add A Note</button>
+                </div>
+            </div>
+
+            <div id="add-note-div">
+                <div class="modal-body">
+                    <form id="add-note-form">
+                        <div class="form-group">
+                            <label for="note-title">Title:</label>
+                            <input id="note-title" class="form-control" type="text" />
+                        </div>
+                        <div class="form-group">
+                            <label for="note-body">Note:</label>
+                            <textarea id="note-body" class="form-control" rows="10"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary save-note-btn">Save Note</button>
+                </div>
+            </div>
+
+            <div id="note-saved-div">
+                <h4 class="modal-title">Note saved!</h4>
+            </div>
+        </div>
+    </div>
+</div>
