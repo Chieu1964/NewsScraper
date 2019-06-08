@@ -10,6 +10,8 @@ var cheerio = require("cheerio");
 var request = require("request");
 var mongoose = require("mongoose");
 
+// mongodb://heroku_9jsmz754:lqdras21t52as2l7v6avge2i4f@ds133187.mlab.com:33187/heroku_9jsmz754
+
 // set port
 
 var port = process.env.PORT || 3001;
